@@ -14,7 +14,9 @@ ventas = {
     Diciembre: 21000
 }
 quarters = {}
-quarters["Q1"] = ventas["Enero"] + ventas["Febrero"] + ventas["Marzo"]
-quarters["Q2"] = ventas["Abril"] + ventas["Mayo"] + ventas["Junio"]
-quarters["Q3"] = ventas["Julio"] + ventas["Agosto"] + ventas["Septiembre"]
-quarters["Q4"] = ventas["Ocutbre"] + ventas["Noviembre"] + ventas["Diciembre"]
+num = 1
+ventas.values.each_slice(3) do |a| 
+    quarters["Q#{num}"] = a.sum
+    num += 1
+end
+puts quarters
